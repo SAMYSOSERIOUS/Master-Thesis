@@ -1,0 +1,73 @@
+ID|readprj|version|side|hip|V01HJSNSL|V01HJSNSM|V01HFOSS|V01HFOSI|V01HAOSS|V01HAOSI|V01HFLAT|V01HCYA|V01HCYF|V01HSCA|V01HSCF
+9113192|21|1|2: Left|L|0: 0|0: 0|1: 1|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9113192|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|1: 1|0: 0|0: No|0: No|0: No|0: No|0: No
+9169092|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9169092|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9189303|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9189303|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9264649|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9264649|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9299340|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9299340|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9346033|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9346033|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9348431|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9348431|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9369375|21|1|2: Left|L|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems
+9369375|21|1|1: Right|R|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems
+9390263|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9390263|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9402055|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9402055|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9410340|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9410340|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9428112|21|1|1: Right|R|0: 0|0: 0|0.5: 0.5|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9428112|21|1|2: Left|L|0: 0|0: 0|0.5: 0.5|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9429009|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9429009|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9436426|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9436426|21|1|2: Left|L|0: 0|0: 0|0.5: 0.5|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9440615|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9440615|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9445104|21|1|2: Left|L|0: 0|2: 2|0: 0|0: 0|1: 1|0: 0|0: No|0: No|0: No|0: No|0: No
+9445104|21|1|1: Right|R|0: 0|1: 1|0: 0|0: 0|1: 1|0: 0|0: No|0: No|0: No|0: No|0: No
+9523523|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9523523|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9523947|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9523947|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9537961|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9537961|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9538954|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9538954|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9547902|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9547902|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0: 0|0: 0|0: No|0: No|0: No|0: No|0: No
+9548401|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9548401|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9548903|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9548903|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9549906|21|1|1: Right|R|0: 0|0: 0|0.5: 0.5|0: 0|1: 1|1: 1|0: No|0: No|0: No|0: No|0: No
+9549906|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|1: 1|0: 0|0: No|0: No|0: No|0: No|0: No
+9550405|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|1: 1|0: 0|0: No|0: No|0: No|0: No|0: No
+9550405|21|1|2: Left|L|0: 0|0: 0|0: 0|1: 1|2: 2|0: 0|0: No|0: No|0: No|0: No|1: Yes
+9556464|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9556464|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9559476|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9559476|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9624154|21|1|1: Right|R|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems
+9624154|21|1|2: Left|L|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems
+9657654|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9657654|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9706842|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9706842|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9797627|21|1|1: Right|R|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems
+9797627|21|1|2: Left|L|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems|.T: Technical Problems
+9833782|21|1|2: Left|L|0: 0|0: 0|0: 0|0.5: 0.5|2: 2|1: 1|0: No|0: No|0: No|0: No|0: No
+9833782|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|2: 2|1: 1|0: No|0: No|0: No|0: No|0: No
+9846846|21|1|1: Right|R|2: 2|2: 2|0: 0|0: 0|1: 1|0: 0|0: No|0: No|0: No|0: No|0: No
+9846846|21|1|2: Left|L|2: 2|2: 2|0.5: 0.5|0: 0|1: 1|0: 0|0: No|0: No|0: No|0: No|0: No
+9875724|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9875724|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9925594|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9925594|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9935439|21|1|1: Right|R|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
+9935439|21|1|2: Left|L|0: 0|0: 0|0: 0|0: 0|0.1|0: 0|0: No|0: No|0: No|0: No|0: No
