@@ -28,11 +28,23 @@ a frozen **feature extractor** and tests whether two datasets share a common
 
 ## Notebooks
 
+### Cause diagnosis — shared severity axis (read-only feature analysis)
+
 | Notebook | Comparison | Why |
 |----------|-----------|-----|
 | `phase1_diagnostic.ipynb` | OAI vs **Mendeley** | The headline external set — is its gap labels or images? |
 | `phase1_diag_oai_vs_nhanes.ipynb` | OAI vs **NHANES III** | Cross-checks the diagnostic on an expert-labelled cohort where the answer should be "shared axis". |
 | `phase1_diag_oai_vs_mrkr.ipynb` | OAI vs **MRKR** | Tests the pseudo-labelled cohort, separating its label noise from any image-level shift. |
+
+### Gap measurement — all folds (inference only)
+
+| Notebook | What it does | Why (method & justification) |
+|----------|--------------|------------------------------|
+| `gap_all_folds_surgical.ipynb` | Loads the best saved checkpoint per fold (fused model for OAI, multi-task model for the other three), runs **inference only** on each fold's internal validation split and its held-out external dataset, and reports the internal→external **generalization gap** for 5-class accuracy, QWK, and the binary clinical tasks. Architecture is auto-detected from each checkpoint. | Quantifies *how large* the external gap is across every fold — the honest headline result. No training, so it cannot bias the estimate; using each fold's strongest available model gives the fairest gap. Binary OA (KL≥2) and severe (KL≥3) metrics are reported via AUC plus accuracy/sensitivity/specificity/PPV/NPV/F1 at clinically justified thresholds (OA 0.45, severe 0.50), because AUC measures discrimination while threshold metrics reflect deployment where a missed diagnosis costs more than an over-referral. |
+
+> This notebook complements the cause-diagnosis notebooks above: they ask **why**
+> a gap exists (labels vs images); this one **measures** the gap precisely for
+> every held-out dataset.
 
 ## Method notes
 
