@@ -34,13 +34,17 @@ one cohort to another.
 
 ## Pipeline
 
+
 ```mermaid
-flowchart LR
+flowchart TB
     A[Download<br/>OAI · NHANES3 · MRKR · Mendeley] --> B[Preprocess &<br/>harmonize labels]
-    B --> C[Pack images &<br/>quality checks]
-    C --> D[Train<br/>per-source folds]
-    D --> E[Calibration &<br/>diagnostics]
-    E --> F[Unified analysis<br/>cross-dataset generalization]
+    B --> C[Pack 61,558 images<br/>quality & leakage checks]
+    C --> D[Leave-one-dataset-out training<br/>3 datasets in · 1 held out · 3 seeds]
+    D --> E[Cross-dataset analysis<br/>7.9pp generalization gap]
+    E --> F[Diagnostic study<br/>severity does not transfer]
+    E --> G[Ceiling study<br/>label-noise bound ~82%]
+    D --> H[Multi-task model<br/>+ OARSI sub-features]
+    H --> I[Fused model<br/>+ screening & severity sub-tasks]
 ```
 
 ## Repository structure
