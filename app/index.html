@@ -70,15 +70,26 @@
 </div>
 
 <script>
-// Point this at your deployed backend. Default uses the same host for a single-site deployment.
-const API = window.API_BASE || "";
+// Point this at your deployed backend. If the frontend is hosted separately, set window.API_BASE.
+const API = (window.API_BASE || window.location.origin || "http://127.0.0.1:8000").replace(/\/$/, "");
 const VC = {STABLE:getComputedStyle(document.documentElement).getPropertyValue('--stable'),
             CAUTION:getComputedStyle(document.documentElement).getPropertyValue('--caution'),
             UNSTABLE:getComputedStyle(document.documentElement).getPropertyValue('--unstable')};
 
+async function readJsonOrText(response){
+  const text = await response.text();
+  if(!text){ return null; }
+  try{ return JSON.parse(text); }
+  catch{ return {raw:text}; }
+}
+
 async function loadCard(){
   try{
-    const r = await fetch(API + "/modelcard"); const c = await r.json();
+    const r = await fetch(API + "/modelcard");
+    const c = await readJsonOrText(r);
+    if(!r.ok || !c || c.raw){
+      throw new Error(c && c.raw ? c.raw : `Could not reach the API (${r.status}).`);
+    }
     const v = c.trust_flag_validation;
     let val;
     if(v && v.by_verdict){
@@ -98,7 +109,7 @@ async function loadCard(){
        <p style="margin:4px 0" class="muted"><b>Limitations:</b> ${c.known_limitations.join("; ")}.</p>
        ${val}
        <p class="muted" style="margin-top:8px">${c.disclaimer}</p>`;
-  }catch(e){ document.getElementById("modelcard").innerHTML = `<span class="err">Could not reach API at ${API}. Set window.API_BASE.</span>`; }
+  }catch(e){ document.getElementById("modelcard").innerHTML = `<span class="err">Could not reach API at ${API}. If the UI is hosted separately, set window.API_BASE to the backend URL.</span>`; }
 }
 
 async function assess(){
@@ -109,8 +120,10 @@ async function assess(){
   try{
     const fd = new FormData(); fd.append("file", f);
     const r = await fetch(API + "/assess", {method:"POST", body:fd});
-    if(!r.ok){ throw new Error((await r.json()).detail || r.status); }
-    const d = await r.json();
+    const d = await readJsonOrText(r);
+    if(!r.ok || !d || d.raw){
+      throw new Error((d && d.detail) || (d && d.raw) || `Request failed with ${r.status}`);
+    }
     document.getElementById("montage").src = "data:image/png;base64," + d.montage_png_base64;
     document.getElementById("grade").textContent = "Predicted KL grade: " + d.grade;
     document.getElementById("softmax").textContent = "softmax " + d.softmax + " (not the reliability signal)";
