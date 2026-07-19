@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Assessment | Knee OA Grader</title>
+<style>
+  :root{--ink:#10233f;--muted:#617085;--line:#dfe5ee;--accent:#0f6cbd;--bg:#f5f7fb;--card:#fff;--stable:#1f7a3d;--caution:#b57b00;--unstable:#c0392b}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);color:var(--ink)}
+  .wrap{max-width:1120px;margin:0 auto;padding:24px 18px 56px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:8px 0 18px;flex-wrap:wrap;gap:10px}
+  .brand{font-weight:800;font-size:17px;letter-spacing:.02em}
+  .nav{display:flex;gap:10px;flex-wrap:wrap}
+  .nav a{color:var(--accent);background:#fff;text-decoration:none;padding:9px 13px;border-radius:999px;border:1px solid var(--line);font-size:14px}
+  .hero{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px 24px;box-shadow:0 10px 24px rgba(16,35,63,.06)}
+  .hero h1{margin:0 0 6px;font-size:28px}
+  .hero p{margin:0;color:var(--muted);line-height:1.6}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin-bottom:16px;box-shadow:0 8px 22px rgba(16,35,63,.05)}
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+  button{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:11px 15px;font-size:15px;cursor:pointer}
+  button:disabled{opacity:.6;cursor:default}
+  input[type=file]{display:block;margin:10px 0 12px;border:1px dashed var(--line);padding:9px;border-radius:10px;background:#fff;width:100%}
+  img.montage{width:100%;border:1px solid var(--line);border-radius:12px}
+  table{width:100%;border-collapse:collapse;font-size:14px} td{padding:6px 8px;border-bottom:1px solid #eef2f7}
+  .badge{display:inline-block;color:#fff;font-weight:700;border-radius:8px;padding:8px 12px}
+  .grade{font-size:28px;font-weight:800}
+  .muted{color:var(--muted)}
+  .err{color:var(--unstable)}
+  .footer{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center}
+  @media (max-width: 780px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">Assessment workflow</div>
+    <div class="nav">
+      <a href="/">Home</a>
+      <a href="/assess">Assessment</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>Upload a knee X-ray</h1>
+    <p>Review the predicted grade, the evidence behind the reliability verdict, and the preprocessing stability indicators in a single workflow.</p>
+  </div>
+
+  <div class="card">
+    <h2>Input</h2>
+    <input id="file" type="file" accept="image/*,.dcm" />
+    <button id="go">Assess</button>
+    <span id="status" class="muted"></span>
+  </div>
+
+  <div id="results" style="display:none">
+    <div class="card">
+      <h3>Preprocessing montage</h3>
+      <img id="montage" class="montage" alt="preprocessing montage" />
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Verdict & evidence</h3>
+        <div><span class="grade" id="grade"></span> <span class="muted" id="softmax"></span></div>
+        <div style="margin:10px 0"><span class="badge" id="verdict"></span> <span class="muted" id="spread"></span></div>
+        <h4>Grade under each pipeline</h4>
+        <table id="variants"></table>
+        <h4>Clinical findings</h4>
+        <table id="findings"></table>
+      </div>
+      <div class="card">
+        <h3>Plain-language explanation</h3>
+        <div id="explanation"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Research demo · Transparent grading workflow</div>
+</div>
+
+<script>
+const API = (window.API_BASE || window.location.origin || "http://127.0.0.1:8000").replace(/\/$/, "");
+const VC = {STABLE:"#1f7a3d", CAUTION:"#b57b00", UNSTABLE:"#c0392b"};
+
+async function readJsonOrText(response){
+  const text = await response.text();
+  if(!text){ return null; }
+  try{ return JSON.parse(text); }
+  catch{ return {raw:text}; }
+}
+
+async function assess(){
+  const file = document.getElementById("file").files[0];
+  if(!file){ document.getElementById("status").textContent = "Choose an image first."; return; }
+  const btn = document.getElementById("go"); btn.disabled = true;
+  document.getElementById("status").textContent = "Processing…";
+  try{
+    const fd = new FormData(); fd.append("file", file);
+    const r = await fetch(API + "/assess", {method:"POST", body:fd});
+    const d = await readJsonOrText(r);
+    if(!r.ok || !d || d.raw){ throw new Error((d && d.detail) || (d && d.raw) || `Request failed with ${r.status}`); }
+    document.getElementById("montage").src = "data:image/png;base64," + d.montage_png_base64;
+    document.getElementById("grade").textContent = "Predicted KL grade: " + d.grade;
+    document.getElementById("softmax").textContent = "softmax " + d.softmax + " (not the reliability signal)";
+    const verdictBox = document.getElementById("verdict");
+    verdictBox.textContent = "Reliability: " + d.verdict;
+    verdictBox.style.background = VC[d.verdict] || "#555";
+    document.getElementById("spread").textContent = `agrees with reference on ${Math.round(d.agreement*100)}% of pipelines; spread ${d.spread}`;
+    document.getElementById("variants").innerHTML = d.grades_by_variant.map(x=>`<tr><td>${x.label}</td><td style="text-align:center">KL ${x.grade}</td></tr>`).join("");
+    document.getElementById("findings").innerHTML = Object.entries(d.findings).map(([k,v])=>`<tr><td>${k}</td><td>${v.word} (${v.severity})</td><td style="color:${v.stability_spread>0?VC.UNSTABLE:VC.STABLE}">${v.stability_spread>0?"unstable":"stable"}</td></tr>`).join("");
+    document.getElementById("explanation").innerHTML = d.explanation.map(s=>`<h4>${s.heading}</h4><p class="muted">${s.body}</p>`).join("");
+    document.getElementById("results").style.display = "block";
+    document.getElementById("status").textContent = "";
+  } catch(e){ document.getElementById("status").innerHTML = `<span class="err">${e.message}</span>`; }
+  finally{ btn.disabled = false; }
+}
+document.getElementById("go").addEventListener("click", assess);
+</script>
+</body>
+</html>

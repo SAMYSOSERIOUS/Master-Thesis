@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About | Knee OA Grader</title>
+<style>
+  :root{--ink:#10233f;--muted:#617085;--line:#dfe5ee;--accent:#0f6cbd;--bg:#f5f7fb;--card:#fff}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);color:var(--ink)}
+  .wrap{max-width:980px;margin:0 auto;padding:24px 18px 56px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:8px 0 18px;flex-wrap:wrap;gap:10px}
+  .brand{font-weight:800;font-size:17px;letter-spacing:.02em}
+  .nav{display:flex;gap:10px;flex-wrap:wrap}
+  .nav a{color:var(--accent);background:#fff;text-decoration:none;padding:9px 13px;border-radius:999px;border:1px solid var(--line);font-size:14px}
+  .hero{background:linear-gradient(135deg,#0f6cbd 0%,#175b9c 55%,#2563eb 100%);color:#fff;border-radius:22px;padding:28px 30px;box-shadow:0 16px 35px rgba(15,108,189,.22)}
+  .hero h1{margin:0 0 10px;font-size:30px}
+  .hero p{margin:0;line-height:1.7;color:rgba(255,255,255,.92)}
+  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.2);font-size:13px;font-weight:700;margin-bottom:10px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-top:16px;box-shadow:0 8px 22px rgba(16,35,63,.05)}
+  h2{margin:0 0 10px} p{line-height:1.65;color:var(--muted)} ul{padding-left:18px;color:var(--muted)} li{margin:6px 0}
+  .footer{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">About the grader</div>
+    <div class="nav">
+      <a href="/">Home</a>
+      <a href="/assess">Assessment</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Research / educational use</div>
+    <h1>This interface is designed for transparency</h1>
+    <p>The grader presents a deterministic workflow that makes the prediction, the evidence, and the reasoning easier to inspect and discuss.</p>
+  </div>
+
+  <div class="card">
+    <h2>What this page demonstrates</h2>
+    <ul>
+      <li>How the same image is processed under multiple preprocessing pipelines.</li>
+      <li>How the final reliability verdict is inferred from spread and agreement.</li>
+      <li>How the explanatory sections are generated without relying on an LLM.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Important note</h2>
+    <p>This system is not a medical device and should not be used for clinical decision-making. It is intended for research, education, and demonstration.</p>
+  </div>
+
+  <div class="footer">Research demo · MSc thesis presentation</div>
+</div>
+</body>
+</html>

@@ -105,3 +105,13 @@ async def assess(file: UploadFile = File(...)):
 def root():
     html_path = Path(__file__).with_name("index.html")
     return html_path.read_text(encoding="utf-8")
+
+@app.get("/assess", response_class=HTMLResponse)
+def assessment_page():
+    html_path = Path(__file__).with_name("assessment.html")
+    return html_path.read_text(encoding="utf-8")
+
+@app.get("/about", response_class=HTMLResponse)
+def about_page():
+    html_path = Path(__file__).with_name("about.html")
+    return html_path.read_text(encoding="utf-8")

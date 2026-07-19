@@ -30,4 +30,20 @@ def test_root_serves_frontend_html():
     assert response.status_code == 200
     text = response.text
     assert "Knee OA" in text
-    assert "Assess (show everything)" in text
+    assert "Start assessment" in text
+
+
+def test_assess_page_serves_frontend_html():
+    response = client.get("/assess")
+    assert response.status_code == 200
+    text = response.text
+    assert "Upload a knee X-ray" in text
+    assert "Assess" in text
+
+
+def test_about_page_serves_frontend_html():
+    response = client.get("/about")
+    assert response.status_code == 200
+    text = response.text
+    assert "About the grader" in text
+    assert "Research / educational use" in text
