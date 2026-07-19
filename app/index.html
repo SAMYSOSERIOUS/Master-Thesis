@@ -5,24 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Home | Knee OA Grader</title>
 <style>
-  :root{--ink:#10233f;--muted:#617085;--line:#dfe5ee;--accent:#0f6cbd;--bg:#f5f7fb;--card:#fff;--soft:#eef5ff}
-  *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);color:var(--ink)}
-  .wrap{max-width:1040px;margin:0 auto;padding:24px 18px 56px}
-  .topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 0 18px;flex-wrap:wrap;gap:10px}
-  .brand{font-weight:800;font-size:17px;letter-spacing:.02em}
+  :root{--ink:#f8fafc;--muted:#94a3b8;--line:#223149;--accent:#60a5fa;--accent-2:#3b82f6;--bg:#07111f;--card:#0e1728;--surface:#121d33;--shadow:0 20px 45px rgba(2,6,23,.35)}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top left,#10203a 0%,var(--bg) 55%);color:var(--ink)}
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 22px 56px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:4px 0 24px;flex-wrap:wrap;gap:10px}
+  .brand{font-weight:800;font-size:17px;letter-spacing:.04em;color:#f8fafc}
   .nav{display:flex;gap:10px;flex-wrap:wrap}
-  .nav a{color:var(--accent);background:#fff;text-decoration:none;padding:9px 13px;border-radius:999px;border:1px solid var(--line);font-size:14px}
-  .hero{background:linear-gradient(135deg,#0f6cbd 0%,#175b9c 55%,#2563eb 100%);color:#fff;border-radius:22px;padding:30px 32px;box-shadow:0 16px 35px rgba(15,108,189,.22)}
-  .hero h1{margin:0 0 10px;font-size:32px;line-height:1.15}
-  .hero p{margin:0;max-width:720px;line-height:1.7;color:rgba(255,255,255,.92)}
-  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.2);font-size:13px;font-weight:700;margin-bottom:12px}
-  .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:20px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;box-shadow:0 8px 22px rgba(16,35,63,.05)}
-  h2,h3{margin:0 0 10px} p{line-height:1.65;color:var(--muted)}
-  .btn{display:inline-block;text-decoration:none;background:var(--accent);color:#fff;padding:11px 15px;border-radius:10px;font-weight:700;margin-top:8px}
-  ul{padding-left:18px;color:var(--muted)} li{margin:6px 0}
-  .footer{margin-top:20px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center}
-  @media (max-width: 780px){.grid{grid-template-columns:1fr}.hero h1{font-size:26px}}
+  .nav a{color:var(--muted);background:#111c30;text-decoration:none;padding:9px 13px;border-radius:999px;border:1px solid var(--line);font-size:14px;transition:all .2s ease}
+  .nav a:hover{color:#f8fafc;border-color:#33507d;transform:translateY(-1px)}
+  .hero{background:linear-gradient(135deg,#121d33 0%,#0e1728 50%,#0a1324 100%);border:1px solid var(--line);border-radius:28px;padding:38px 40px;box-shadow:var(--shadow)}
+  .hero .eyebrow{display:inline-block;padding:7px 10px;border-radius:999px;background:rgba(96,165,250,.14);color:#a9cfff;font-size:13px;font-weight:800;margin-bottom:12px;letter-spacing:.03em}
+  .hero h1{margin:0 0 12px;font-size:38px;line-height:1.08;letter-spacing:-.02em;color:#f8fafc}
+  .hero p{margin:0;max-width:810px;line-height:1.8;color:#cbd5e1;font-size:17px}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .btn{display:inline-block;text-decoration:none;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;padding:12px 16px;border-radius:12px;font-weight:700;box-shadow:0 10px 24px rgba(59,130,246,.24)}
+  .btn.secondary{background:#111c30;color:#e2e8f0;border:1px solid var(--line);box-shadow:none}
+  .grid{display:grid;grid-template-columns:1.18fr .82fr;gap:18px;margin-top:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 24px;box-shadow:var(--shadow)}
+  .card h2{margin:0 0 10px;font-size:20px;color:#f8fafc}
+  .card p{line-height:1.75;color:#cbd5e1}
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+  .stat{background:linear-gradient(135deg,#121d33 0%,#0f1728 100%);border:1px solid var(--line);border-radius:14px;padding:12px 10px}
+  .stat strong{display:block;font-size:15px;margin-bottom:4px;color:#f8fafc}
+  .stat span{font-size:13px;color:#94a3b8}
+  ul{padding-left:18px;color:#cbd5e1} li{margin:6px 0}
+  .footer{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);color:#94a3b8;font-size:14px;text-align:center}
+  @media (max-width: 780px){.grid{grid-template-columns:1fr}.hero h1{font-size:28px}.stats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -37,16 +45,24 @@
   </div>
 
   <div class="hero">
-    <div class="pill">Transparent reliability grading</div>
-    <h1>A clearer, more explainable knee OA workflow</h1>
-    <p>This demo presents a professional assessment experience for exploring KL-grade predictions, reliability signals, and deterministic explanations in a way that is easy to review and discuss.</p>
+    <div class="eyebrow">Research presentation · transparent workflow</div>
+    <h1>A thesis-ready knee osteoarthritis grading experience</h1>
+    <p>This interface presents a structured and explainable workflow for reviewing KL-grade predictions, reliability signals, and deterministic evidence in a way that is easy to inspect during presentation or discussion.</p>
+    <div class="actions">
+      <a class="btn" href="/assess">Open assessment view</a>
+      <a class="btn secondary" href="/about">Learn more</a>
+    </div>
   </div>
 
   <div class="grid">
     <div class="card">
       <h2>Start assessment</h2>
-      <p>Upload a knee X-ray to review the predicted grade, the reliability verdict, the evidence behind the result, and a plain-language explanation.</p>
-      <a class="btn" href="/assess">Open assessment view</a>
+      <p>The workflow is organized around three core elements: input image review, grading output, and transparent reasoning. Each stage is designed to make the process easier to understand from both a technical and academic perspective.</p>
+      <div class="stats">
+        <div class="stat"><strong>Deterministic</strong><span>consistent outputs for demo use</span></div>
+        <div class="stat"><strong>Explainable</strong><span>plain-language findings and rationale</span></div>
+        <div class="stat"><strong>Transparent</strong><span>multiple pipelines and spread indicators</span></div>
+      </div>
     </div>
     <div class="card">
       <h2>What the app highlights</h2>

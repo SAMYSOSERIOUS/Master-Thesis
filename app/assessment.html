@@ -5,29 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assessment | Knee OA Grader</title>
 <style>
-  :root{--ink:#10233f;--muted:#617085;--line:#dfe5ee;--accent:#0f6cbd;--bg:#f5f7fb;--card:#fff;--stable:#1f7a3d;--caution:#b57b00;--unstable:#c0392b}
-  *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 100%);color:var(--ink)}
-  .wrap{max-width:1120px;margin:0 auto;padding:24px 18px 56px}
-  .topbar{display:flex;justify-content:space-between;align-items:center;padding:8px 0 18px;flex-wrap:wrap;gap:10px}
-  .brand{font-weight:800;font-size:17px;letter-spacing:.02em}
+  :root{--ink:#f8fafc;--muted:#94a3b8;--line:#223149;--accent:#60a5fa;--accent-2:#3b82f6;--bg:#07111f;--card:#0e1728;--surface:#121d33;--shadow:0 20px 45px rgba(2,6,23,.35)}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+  .wrap{max-width:1180px;margin:0 auto;padding:24px 18px 56px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:6px 0 18px;flex-wrap:wrap;gap:10px}
+  .brand{font-weight:800;font-size:17px;letter-spacing:.04em;color:#f8fafc}
   .nav{display:flex;gap:10px;flex-wrap:wrap}
-  .nav a{color:var(--accent);background:#fff;text-decoration:none;padding:9px 13px;border-radius:999px;border:1px solid var(--line);font-size:14px}
-  .hero{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px 24px;box-shadow:0 10px 24px rgba(16,35,63,.06)}
-  .hero h1{margin:0 0 6px;font-size:28px}
-  .hero p{margin:0;color:var(--muted);line-height:1.6}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin-bottom:16px;box-shadow:0 8px 22px rgba(16,35,63,.05)}
+  .nav a{color:var(--muted);background:#111c30;text-decoration:none;padding:9px 13px;border-radius:999px;border:1px solid var(--line);font-size:14px;transition:all .2s ease}
+  .nav a:hover{color:#f8fafc;border-color:#33507d;transform:translateY(-1px)}
+  .hero{background:linear-gradient(135deg,#121d33 0%,#0e1728 50%,#0a1324 100%);border:1px solid var(--line);border-radius:24px;padding:24px 26px;box-shadow:var(--shadow)}
+  .hero h1{margin:0 0 6px;font-size:30px;letter-spacing:-.02em;color:#f8fafc}
+  .hero p{margin:0;color:#cbd5e1;line-height:1.75;font-size:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
   .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
-  button{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:11px 15px;font-size:15px;cursor:pointer}
+  .panel{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .hint{display:block;margin-top:8px;color:#94a3b8;font-size:14px}
+  button{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:0;border-radius:12px;padding:12px 16px;font-size:15px;cursor:pointer;box-shadow:0 10px 24px rgba(59,130,246,.24)}
   button:disabled{opacity:.6;cursor:default}
-  input[type=file]{display:block;margin:10px 0 12px;border:1px dashed var(--line);padding:9px;border-radius:10px;background:#fff;width:100%}
-  img.montage{width:100%;border:1px solid var(--line);border-radius:12px}
-  table{width:100%;border-collapse:collapse;font-size:14px} td{padding:6px 8px;border-bottom:1px solid #eef2f7}
-  .badge{display:inline-block;color:#fff;font-weight:700;border-radius:8px;padding:8px 12px}
+  .upload-shell{margin:12px 0 10px;padding:18px;border:1px dashed #33507d;border-radius:16px;background:linear-gradient(135deg,rgba(17,28,48,.96),rgba(10,19,36,.95));display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .upload-shell strong{display:block;color:#f8fafc;font-size:15px}
+  .upload-shell span{display:block;color:#94a3b8;font-size:13px;margin-top:4px}
+  .upload-shell label{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;cursor:pointer}
+  .upload-shell input[type=file]{display:none}
+  .upload-name{color:#cbd5e1;font-size:14px;min-height:20px}
+  img.montage{width:100%;border:1px solid var(--line);border-radius:14px}
+  table{width:100%;border-collapse:collapse;font-size:14px} td{padding:6px 8px;border-bottom:1px solid #1f2d43}
+  .badge{display:inline-block;color:#fff;font-weight:700;border-radius:10px;padding:8px 12px}
   .grade{font-size:28px;font-weight:800}
-  .muted{color:var(--muted)}
+  .muted{color:#94a3b8}
   .err{color:var(--unstable)}
-  .footer{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center}
-  @media (max-width: 780px){.grid{grid-template-columns:1fr}}
+  .footer{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);color:#94a3b8;font-size:14px;text-align:center}
+  @media (max-width: 780px){.grid,.panel{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -43,14 +51,28 @@
 
   <div class="hero">
     <h1>Upload a knee X-ray</h1>
-    <p>Review the predicted grade, the evidence behind the reliability verdict, and the preprocessing stability indicators in a single workflow.</p>
+    <p>Review the predicted grade, the evidence behind the reliability verdict, and the preprocessing stability indicators in a single, structured workflow.</p>
   </div>
 
-  <div class="card">
-    <h2>Input</h2>
-    <input id="file" type="file" accept="image/*,.dcm" />
-    <button id="go">Assess</button>
-    <span id="status" class="muted"></span>
+  <div class="panel">
+    <div class="card">
+      <h2>Input</h2>
+      <div class="upload-shell">
+        <div>
+          <strong>Upload imaging file</strong>
+          <span>PNG, JPG, or DICOM format</span>
+        </div>
+        <label for="file">Choose file</label>
+        <input id="file" type="file" accept="image/*,.dcm" />
+      </div>
+      <div class="upload-name" id="upload-name">No file selected</div>
+      <button id="go">Assess</button>
+      <span id="status" class="hint"></span>
+    </div>
+    <div class="card">
+      <h2>Expected output</h2>
+      <p class="muted">The assessment view will display the predicted KL grade, the reliability verdict, the preprocessing montage, and a plain-language explanation of the result.</p>
+    </div>
   </div>
 
   <div id="results" style="display:none">
@@ -88,6 +110,11 @@ async function readJsonOrText(response){
   try{ return JSON.parse(text); }
   catch{ return {raw:text}; }
 }
+
+document.getElementById("file").addEventListener("change", function(){
+  const name = this.files && this.files[0] ? this.files[0].name : "No file selected";
+  document.getElementById("upload-name").textContent = name;
+});
 
 async function assess(){
   const file = document.getElementById("file").files[0];
