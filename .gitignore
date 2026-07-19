@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+*.tmp
+*.zip
+*.docx
+*.pdf
+.env
+.venv/
+.DS_Store
+.pytest_cache/
+.coverage
+node_modules/
+.tmp_report_extract/
+Secrets/

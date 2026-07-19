@@ -1,0 +1,12 @@
+{
+  "cohort": "OAI",
+  "n_total": 1444,
+  "checkpoint": "mt_mendeley_seed0",
+  "source": "preprocess_variants_findings.csv",
+  "by_verdict": {
+    "STABLE":   {"n": 992, "accuracy": 0.80},
+    "UNSTABLE": {"n": 312, "accuracy": 0.61}
+  },
+  "failure_detection_auc": 0.60,
+  "interpretation": "Stable-flagged predictions are 80% accurate vs 61% for unstable; the flag is a real but partial predictor of error (AUC 0.60). Regenerate if the checkpoint changes."
+}
