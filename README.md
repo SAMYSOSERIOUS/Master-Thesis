@@ -51,9 +51,10 @@ flowchart TB
 
 | Path | Contents |
 | --- | --- |
-| `notebooks_standardized/pipeline_v1/` | End-to-end pipeline (`00`–`14`) |
-| `notebooks_standardized/oai`, `nhanes3`, `mrkr`, `mendeley`, `oarsi`, `mt3` | Per-dataset download / preprocessing / modeling |
-| `notebooks_standardized/calibration/` | Calibration & stability experiments |
-| `notebooks_standardized/diagnostics/` | Cross-dataset diagnostic comparisons |
-| `notebooks_standardized/experiments/` | Ablations and helper studies |
+| `research/pipeline_v1/` | End-to-end pipeline (`00`–`14`) |
+| `research/oai`, `research/nhanes3`, `research/mrkr`, `research/mendeley`, `research/oarsi`, `research/mt3` | Per-dataset download / preprocessing / modeling |
+| `research/calibration/` | Calibration & stability experiments |
+| `research/diagnostics/` | Cross-dataset diagnostic comparisons |
+| `research/experiments/` | Ablations and helper studies |
+| `research/novel/` | Provenance, preprocessing, and concept-level transfer studies |
 | `assessments/` | OAI radiographic assessment data + descriptors (see folder README) |
