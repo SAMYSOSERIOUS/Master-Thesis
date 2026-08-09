@@ -102,6 +102,17 @@ The notebooks include reader-guide markdown blocks for this same route. These
 blocks are presentation aids only; they do not alter model code, configuration,
 data access, or analysis logic.
 
+## Relationship to Exploratory Research
+
+The notebooks in [`../research/`](../research/) record the acquisition,
+multi-source, calibration, and diagnostic work that informed this final
+pipeline. They remain valuable for reproducibility and methodological context,
+but final thesis claims should be traced to the protected cohorts, frozen
+artifacts, and acceptance certificates produced here. The provenance and
+preprocessing studies in [`../research/novel/`](../research/novel/) explain why
+Mendeley is not used as an independent OAI external-validation cohort in this
+final workflow.
+
 ## Artifact Naming Note
 
 N02A is the presented stage name for primary OAI-only model development. Some

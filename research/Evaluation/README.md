@@ -1,9 +1,13 @@
-# Evaluation — Post-hoc Result Analysis (no training)
+# Evaluation - Historical Post-hoc Result Analysis
 
 Inference-free evaluation notebooks that re-analyze the **predictions already
 saved** by the fold experiments. Neither notebook trains a model; both reuse
 stored probability vectors, so every result here is reproducible in minutes and
 cannot introduce optimistic bias.
+
+> **Status:** these notebooks re-score prediction files from the earlier
+> multi-source pipeline. They are reproducible historical analyses, not the
+> acceptance workflow for the final OAI-to-NHANES thesis result.
 
 ## Scientific rationale
 
@@ -27,3 +31,11 @@ cheap (no GPU training).
 - **Consistent re-binning** — class merges are applied to truth and predictions together, otherwise the comparison would be invalid.
 - **Seed ensembling** — variance reduction by averaging independent runs, the standard low-cost robustness technique.
 - **Metrics** — accuracy, weighted F1, and quadratic weighted kappa (QWK), the latter respecting the ordinal nature of KL grades.
+
+## Interpretation Boundary
+
+Mendeley-containing prediction sets are not independent OAI external-validation
+evidence after the provenance audit. Use the results here for historical scoring
+and sensitivity analysis, and trace final statistical claims to
+[`../../Final Notebook/`](../../Final%20Notebook/). Keep regenerated prediction
+tables and figures on Google Drive.

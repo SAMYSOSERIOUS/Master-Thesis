@@ -1,8 +1,11 @@
-# mrkr — Emory Knee Radiograph Dataset (MRKR)
+# mrkr - Emory Knee Radiograph Dataset (MRKR)
 
 Acquisition and preprocessing of the **MRKR** (Emory) knee radiographs — the
-largest source in the study, but with **model-predicted (pseudo) KL labels**
-rather than expert annotations.
+large historical source in the exploratory pipeline, but with **model-predicted
+(pseudo) KL labels** rather than expert annotations.
+
+> **Status:** ancillary exploratory source. MRKR is not the independently
+> expert-labelled target cohort for the final OAI-to-NHANES thesis evaluation.
 
 ## Scientific rationale
 
@@ -26,3 +29,11 @@ label quality, not the pixels.
 - **Pseudo-labels = noisy supervision** — explicitly acknowledged and managed, not assumed clean.
 - **Index-first filtering** — the 210 MB CSV is the cheap proxy used to plan an expensive download.
 - **Format parity with OAI/NHANES** — identical CLAHE + 224×224 so cross-dataset effects are isolated to content and labels.
+
+## Reproducibility Boundary
+
+MRKR's pseudo-labels make it appropriate for weak-supervision and data-quality
+experiments, not a substitute for expert-held-out validation. The acquisition
+notebooks can be expensive and require authorized S3 access; keep downloaded and
+generated artifacts on Google Drive. The final protected evaluation is documented
+in [`../../Final Notebook/`](../../Final%20Notebook/).

@@ -1,9 +1,14 @@
-# calibration — Stabilization, Multi-Seed and Calibration
+# calibration - Stabilization, Multi-Seed, and Calibration
 
 The final "within-one" push: stabilizing the distance-weighted trainer, repeating
 it across seeds for a variance estimate, and combining seeds into a calibrated
 ensemble. No new data is introduced here — these notebooks make the *existing*
 method reliable and well-calibrated.
+
+> **Status:** historical support for the exploratory multi-source pipeline.
+> The protected thesis results are produced by
+> [`../../Final Notebook/`](../../Final%20Notebook/), whose frozen artifacts and
+> acceptance checks are the authoritative source for final claims.
 
 ## Scientific rationale
 
@@ -27,3 +32,10 @@ calibrate to extract the final defensible number.
 - **Multi-seed protocol** — the standard defense against cherry-picked runs.
 - **Validation-fit, test-apply calibration** — strict separation so calibration never sees the test labels.
 - **Test-time augmentation** — averages predictions over input transforms to lower variance at inference.
+
+## Reproducibility Boundary
+
+These notebooks document how stability and uncertainty were investigated during
+development; they do not replace the protected split, bootstrap, and evidence
+records in the final pipeline. Write any regenerated artifacts to Google Drive,
+never Colab's ephemeral local storage.

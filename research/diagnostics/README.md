@@ -1,9 +1,14 @@
-# diagnostics — Why Does the External Gap Exist?
+# diagnostics - Historical Cross-Cohort Diagnostics
 
-Read-only diagnostic notebooks that ask a single causal question: when the model
-loses accuracy on an external dataset (notably Mendeley), is the gap caused by
-**labels** (different grading conventions, recoverable by re-fitting boundaries) or
-by **images** (a genuine feature-level domain shift, irreducible)?
+Read-only diagnostic notebooks that ask a single causal question: when the
+historical model loses accuracy across cohorts, is the gap caused by **labels**
+(different grading conventions, recoverable by re-fitting boundaries) or by
+**images** (a genuine feature-level domain shift, irreducible)?
+
+> **Status:** exploratory diagnostic evidence. The provenance audit identifies
+> Mendeley as OAI-derived for the overlapping knees examined, so Mendeley
+> comparisons in this folder are pipeline/provenance controls rather than
+> independent OAI external-validation results.
 
 ## Scientific rationale
 
@@ -32,7 +37,7 @@ a frozen **feature extractor** and tests whether two datasets share a common
 
 | Notebook | Comparison | Why |
 |----------|-----------|-----|
-| `phase1_diagnostic.ipynb` | OAI vs **Mendeley** | The headline external set — is its gap labels or images? |
+| `phase1_diagnostic.ipynb` | OAI vs **Mendeley** | Historical paired-source/provenance control: tests whether pipeline representations differ when anatomy overlaps. |
 | `phase1_diag_oai_vs_nhanes.ipynb` | OAI vs **NHANES III** | Cross-checks the diagnostic on an expert-labelled cohort where the answer should be "shared axis". |
 | `phase1_diag_oai_vs_mrkr.ipynb` | OAI vs **MRKR** | Tests the pseudo-labelled cohort, separating its label noise from any image-level shift. |
 
@@ -52,3 +57,11 @@ a frozen **feature extractor** and tests whether two datasets share a common
 - **Linear severity axis (LDA/logistic)** — a single, interpretable direction makes the "shared axis?" question testable.
 - **Spearman rank correlation** — checks ordering without assuming linear spacing of grades.
 - **Read-only by design** — guarantees the diagnostic measures, rather than manufactures, the effect.
+
+## Interpretation Boundary
+
+Use these notebooks to understand historical representation and label-policy
+effects. For final protected evaluation, use
+[`../../Final Notebook/`](../../Final%20Notebook/); for the paired provenance and
+preprocessing evidence, use [`../novel/`](../novel/). Generated diagnostic
+artifacts belong on Google Drive, not temporary Colab storage.

@@ -4,6 +4,11 @@ Acquisition, preprocessing and labelling of the **OAI** knee radiographs — the
 highest-quality, expert-graded cohort in the study and the reference against
 which the other datasets are harmonized.
 
+> **Role in the final thesis:** OAI is the protected source cohort. The final
+> workflow rebuilds the cohort, labels, and participant-level split from these
+> source materials before fitting or evaluating the canonical analysis in
+> [`../../Final Notebook/`](../../Final%20Notebook/).
+
 ## Scientific rationale
 
 OAI provides standardized bilateral knee X-rays with expert semi-quantitative
@@ -29,3 +34,9 @@ a precondition for any valid cross-dataset comparison.
   orientation so the model sees a single consistent anatomy.
 - **Check→Fix→Verify** — every QC step is idempotent and auditable, the engineering
   analogue of a controlled measurement.
+
+## Reproducibility Boundary
+
+The OAI assessment files in [`../../assessments/`](../../assessments/) are source
+data and must remain unchanged. Write downloaded images, processed crops,
+manifests, and derived QC reports to Google Drive, never ephemeral Colab storage.

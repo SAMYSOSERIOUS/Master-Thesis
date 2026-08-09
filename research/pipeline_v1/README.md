@@ -1,9 +1,14 @@
-# pipeline_v1 — Primary Cross-Dataset Pipeline
+# pipeline_v1 - Historical Multi-Source LODO Pipeline
 
-The main end-to-end experiment for the thesis: a **leave-one-dataset-out (LODO)**
-study of knee-osteoarthritis KL grading across OAI, NHANES III, MRKR and Mendeley.
-Notebooks are numbered `00`–`14` and run in order — each stage produces an
-artifact the next stage consumes.
+An earlier end-to-end **leave-one-dataset-out (LODO)** study of knee-osteoarthritis
+KL grading across OAI, NHANES III, MRKR, and Mendeley. Notebooks are numbered
+`00`-`14` and run in order; each stage produces an artifact consumed by the next.
+
+> **Status:** retained for reproducibility of the multi-source research program.
+> It is not the canonical final thesis sequence. The provenance audit identifies
+> Mendeley as OAI-derived for overlapping knees, so Mendeley-related folds cannot
+> establish independent OAI external performance. Use
+> [`../../Final Notebook/`](../../Final%20Notebook/) for protected final results.
 
 ## Scientific rationale
 
@@ -49,3 +54,12 @@ flowchart LR
 - **Domain adaptation:** gradient-reversal domain classifier for cohort invariance.
 - **Robustness to noisy labels:** confident-learning quality scores + curriculum weighting.
 - **Evaluation:** leave-one-dataset-out, multi-seed, bootstrap CIs, calibration, Grad-CAM.
+
+## Interpretation and Reproducibility Boundary
+
+This directory preserves historical configurations, checkpoints, and outputs so
+the development path can be inspected. Results involving NHANES, MRKR, and OAI
+remain useful within their stated design; Mendeley results are provenance and
+preprocessing controls after the audit in [`../novel/`](../novel/), not independent
+transfer claims. Keep all regenerated arrays, checkpoints, predictions, and
+figures on Google Drive rather than local Colab storage.

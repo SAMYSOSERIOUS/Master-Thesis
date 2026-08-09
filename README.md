@@ -102,6 +102,17 @@ official OAI KL assessment.
 | [research/pipeline_v1/](research/pipeline_v1/) | Earlier multi-source leave-one-dataset-out pipeline. |
 | [assessments/](assessments/) | OAI radiographic assessment data and descriptors. |
 
+## Documentation Map
+
+- [Final Notebook/README.md](Final%20Notebook/README.md) is the authoritative
+    execution guide for the final protected OAI-to-NHANES analysis.
+- [research/README.md](research/README.md) indexes the earlier acquisition,
+    multi-source, calibration, diagnostic, and benchmark studies.
+- [research/novel/README.md](research/novel/README.md) documents the
+    provenance, preprocessing, and concept-level forensic work.
+- [assessments/README.md](assessments/README.md) describes the included OAI
+    radiographic assessment source files.
+
 ## Reproducibility
 
 The final notebooks are designed for Google Colab with Google Drive mounted.

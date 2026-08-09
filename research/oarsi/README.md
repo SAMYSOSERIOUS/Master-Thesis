@@ -4,6 +4,10 @@ Extraction of **OARSI sub-feature gradings** (osteophytes, joint-space narrowing
 sclerosis) and multi-task training that predicts these features *alongside* the KL
 grade.
 
+> **Status:** exploratory concept-supervision and multi-task work. It informs
+> the thesis interpretation of radiographic findings, but it is not a separate
+> protected final evaluation route.
+
 ## Scientific rationale
 
 The KL grade is a single ordinal summary of several distinct radiographic
@@ -30,3 +34,11 @@ must learn from *partial* supervision — handled with per-feature masking.
 - **Masked loss** — the principled way to train on partially labelled data.
 - **Ordinal (CORN) heads** — each sub-feature (0–3) is ordered, so ordinal modelling, not flat classification, is used.
 - **Divergence guard** — an explicit stability mechanism, treated as part of the experimental method rather than an afterthought.
+
+## Relationship to the Final Pipeline
+
+The final notebook sequence evaluates concept reliability and the separation of
+perception from grading policy under frozen protocols. Use this folder to trace
+the earlier extraction and masked multi-task implementation, and use
+[`../../Final Notebook/`](../../Final%20Notebook/) for the final evidence trail.
+Keep any rerun artifacts on Google Drive.

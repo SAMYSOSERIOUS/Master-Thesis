@@ -1,4 +1,4 @@
-# experiments — Ablations and Maximum-Configuration Studies
+# experiments - Historical Ablations and Maximum-Configuration Studies
 
 Exploratory and "maximum-effort" notebooks that extend the primary pipeline:
 adjacency-tolerant evaluation, a self-contained ordinal training library, and a
@@ -11,6 +11,10 @@ The main pipeline answers the core research questions; these notebooks probe the
 can one fold get if every technique is stacked?" (the MAX configuration), and part
 asks "are the remaining errors clinically meaningful?" (adjacency metrics). Both
 are needed to argue the method's results are both strong and sensible.
+
+> **Status:** exploratory upper-bound and ablation work. These notebooks are
+> retained for methodological context; they do not supersede the frozen final
+> OAI-to-NHANES workflow in [`../../Final Notebook/`](../../Final%20Notebook/).
 
 ## Notebooks
 
@@ -25,3 +29,11 @@ are needed to argue the method's results are both strong and sensible.
 - **Adjacency-tolerant metrics** — match the ordinal, clinical nature of KL; a large within-1 − exact gap means errors are boundary confusions, not gross misclassifications.
 - **Soft / ordinal labels (CORN)** — respect grade ordering and label uncertainty.
 - **Higher resolution (384²) + full fine-tune** — the "spare no expense" upper bound, deliberately separated from the efficient main pipeline.
+
+## Use Boundary
+
+Read these notebooks as ablation evidence and architecture exploration. They may
+reuse older paths, checkpoints, and multi-source fold definitions; preserve those
+inputs when reproducing their historical results, and write any new artifacts to
+Google Drive. Use [`../novel/`](../novel/) for the provenance-based interpretation
+of Mendeley and `Final Notebook/` for final protected conclusions.

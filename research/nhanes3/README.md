@@ -4,6 +4,11 @@ Acquisition, processing and labelling of the **NHANES III** knee radiographs —
 population-representative US survey cohort used as a second expert-labelled
 training/generalization source.
 
+> **Role in the final thesis:** NHANES III is the independently acquired,
+> expert-labelled target cohort for the protected OAI-to-NHANES evaluation. The
+> final pipeline reconstructs its cohort and freezes participant-level splits in
+> [`../../Final Notebook/`](../../Final%20Notebook/).
+
 ## Scientific rationale
 
 NHANES III was acquired with different equipment and on a broader, community-based
@@ -26,3 +31,10 @@ difference is biological/demographic rather than format-driven.
   stratifying prevents rare severe grades from landing entirely in one split.
 - **Image–label cross-reference** — protects against silent misalignment between
   the CDC data file and the processed images.
+
+## Reproducibility Boundary
+
+The acquisition notebook is network-dependent and may be long-running. Preserve
+source identifiers, image-label joins, and participant-level grouping when
+rerunning it. Store downloaded images, manifests, and generated reports on
+Google Drive rather than local Colab storage.

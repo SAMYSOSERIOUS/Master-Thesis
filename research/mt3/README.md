@@ -1,7 +1,11 @@
-# mt3 — Fused Multi-Task + Cascade Model
+# mt3 - Historical Fused Multi-Task and Cascade Study
 
 A single notebook that **fuses the two strongest modelling ideas** from the thesis
 into one architecture and trains it on the OAI fold.
+
+> **Status:** exploratory architecture study. It evaluates whether two earlier
+> ideas stack on an OAI fold; it is not a replacement for the canonical final
+> OAI-to-NHANES pipeline.
 
 ## Scientific rationale
 
@@ -23,3 +27,11 @@ either alone. Fusing them in one model is the direct experimental test.
 - **Cascade decomposition** — splitting an ordinal task into ordered binary decisions follows clinical reasoning and can sharpen the hardest boundaries.
 - **Masked multi-task heads** — reused from `oarsi/`, so missing sub-grades contribute no gradient.
 - **Guarded training** — divergence detection / checkpoint reversion keeps the more complex fused model stable.
+
+## Use Boundary
+
+Treat this notebook as an architecture ablation with OAI-specific concept
+supervision. It provides context for the thesis concept-layer work but does not
+independently establish cross-cohort transportability. Store rerun checkpoints,
+predictions, and figures on Google Drive; consult
+[`../../Final Notebook/`](../../Final%20Notebook/) for the protected final route.

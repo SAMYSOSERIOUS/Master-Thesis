@@ -1,25 +1,36 @@
-# mendeley — External Hold-Out Set
+# mendeley - Acquisition and Provenance Audit Input
 
-Acquisition and preparation of the **Mendeley/Kaggle Knee Osteoarthritis** dataset.
+This folder contains acquisition and preparation work for the Mendeley/Kaggle
+knee osteoarthritis resource. It belongs to the exploratory multi-source
+pipeline, not the canonical final OAI-to-NHANES evaluation.
 
-> **Role: hold-out only.** This dataset is *never* trained on. It is the external
-> benchmark used to measure true out-of-distribution generalization.
+## Current Interpretation
 
-## Scientific rationale
+The provenance work in [`../novel/`](../novel/) found that the Mendeley resource
+is OAI-derived for the overlapping knees examined. It must therefore not be
+described as an independent external validation cohort when OAI is in the
+training source. Historical leave-one-dataset-out results involving Mendeley are
+useful for tracing preprocessing and data-lineage effects, but they are not
+independent OAI-to-Mendeley transfer estimates.
 
-The strongest test of generalization is a dataset the model has never seen in any
-form — different institution, scanner and labelling pipeline. Mendeley serves as
-that independent yardstick (the "leave-one-dataset-out" target in several folds).
-Keeping it strictly hold-out prevents any optimistic bias: every number reported
-on Mendeley is honest external performance.
+The derived relationship is scientifically useful: paired OAI and Mendeley
+representations of the same knee support a controlled analysis of how image
+processing can change predicted findings and KL grade without changing anatomy
+or the reference label.
 
-## Notebooks
+## Notebook
 
-| Notebook | What it does | Why (method & justification) |
-|----------|--------------|------------------------------|
-| `mendeley_download.ipynb` | Downloads the Mendeley/Kaggle KL-graded dataset, processes images to the project format, and writes `mendeley_holdout.csv` plus a KL-distribution plot. | Establishes a clean, format-matched external benchmark; the distribution plot documents class balance so external results can be interpreted in context. |
+| Notebook | Role | Main products |
+| --- | --- | --- |
+| `mendeley_download.ipynb` | Downloads and prepares the Mendeley/Kaggle images for the historical multi-source pipeline. | Processed images, `mendeley_holdout.csv`, and a KL-distribution summary. |
 
-## Method notes
+## Use Boundaries
 
-- **Strict train/test hygiene** — hold-out status is enforced by convention and by the LODO protocol; leakage here would invalidate the headline generalization claim.
-- **Format harmonization** — images are normalized to the same intensity/size as training data (see `pipeline_v1/03_mendeley_harmonize.ipynb`) so an external accuracy drop reflects domain shift in content, not preprocessing mismatch.
+- Do not use this folder's outputs as evidence of independent external
+	performance for OAI-trained models.
+- Do not combine Mendeley and OAI as independent cohorts in a final statistical
+	analysis.
+- Use the canonical final pipeline in [`../../Final Notebook/`](../../Final%20Notebook/)
+	for protected OAI-to-NHANES evaluation.
+- Use [`../novel/`](../novel/) for the provenance and paired-preprocessing
+	analyses that explain the audit finding.

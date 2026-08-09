@@ -5,6 +5,10 @@ knee osteoarthritis (KOA) grading can fail. They are not another model search:
 they audit dataset provenance, isolate preprocessing as a paired intervention,
 and separate image-to-finding perception from finding-to-grade policy.
 
+> **Status:** core forensic contribution. These notebooks explain the provenance
+> and preprocessing boundaries that shape the final protected OAI-to-NHANES
+> analysis; they do not replace its frozen evaluation protocol.
+
 ## Research Questions
 
 1. Is the Mendeley knee dataset an independent external cohort for OAI-based
@@ -61,6 +65,18 @@ They do not retrain the model.
 
 The NHANES experiment downloads source TIFF films from the CDC FTP endpoint.
 Rerunning it may therefore take substantial time and depends on network access.
+
+For new runs, write all generated files to a reproducible Google Drive project
+location (the project convention is `/content/drive/MyDrive/oai/`), never to
+ephemeral `/content` storage. Historical notebook paths may retain older Drive
+subdirectory names.
+
+## Relationship to the Final Pipeline
+
+Use [`../../Final Notebook/`](../../Final%20Notebook/) for the protected cohort
+construction, locked evaluation, reliability analysis, and adaptation evidence.
+Use this folder to explain why Mendeley is a provenance/preprocessing control and
+to report paired processing sensitivity or perception-versus-policy findings.
 
 ## Interpretation Boundaries
 

@@ -1,4 +1,4 @@
-# single_source — Single-Dataset SOTA Baseline
+# single_source - Historical OAI-Only Baseline
 
 A single-source experiment: train one strong model on **OAI alone** and evaluate
 how well it transfers to the other three datasets in the same run.
@@ -13,6 +13,10 @@ expert-graded labels. The internal→external gap measured here is the **honest 
 of training on a single source**, and it is the number the multi-dataset method
 (studied in `pipeline_v1`) must beat.
 
+> **Status:** historical comparison baseline. The Mendeley evaluation portion is
+> retained as a provenance/preprocessing control after the audit; it does not
+> establish independent OAI-to-Mendeley transfer.
+
 ## Notebook
 
 | Notebook | What it does | Why (method & justification) |
@@ -25,3 +29,11 @@ of training on a single source**, and it is the number the multi-dataset method
 - **Strict hold-out** — the other three datasets are never seen during training; their accuracy is pure out-of-distribution transfer.
 - **Same model family as the multi-source runs** — keeps the single-source vs multi-source comparison fair (only the training data differs).
 - **Metrics** — accuracy, quadratic weighted kappa (QWK), and AUC, reported for both in-domain and external evaluation.
+
+## Interpretation Boundary
+
+Use this notebook to understand the original OAI-only comparison design. Trace
+final protected OAI-to-NHANES claims to
+[`../../Final Notebook/`](../../Final%20Notebook/) and use
+[`../novel/`](../novel/) to interpret any Mendeley-derived observation. Generated
+checkpoints, prediction JSON, and figures belong on Google Drive.

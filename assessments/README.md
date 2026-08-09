@@ -6,6 +6,18 @@ specific category of knee or hip X-ray readings, provided as comma-separated
 `.txt` data files together with PDF descriptors (variable contents, statistics,
 and reader comments).
 
+## Role in This Thesis
+
+These are source assessment files, not generated model outputs. The final
+pipeline reconstructs OAI KL and shared radiographic-concept labels from the
+appropriate source files and records the resulting cohort manifests in
+[`../Final Notebook/`](../Final%20Notebook/). In particular,
+`XR Knee Semi-Quant/` supplies the reference KL and OARSI-style sub-feature
+information used by the OAI data and concept-bottleneck workflows.
+
+Do not edit the source files in place. Any parsed, harmonized, or derived data
+belongs in the Google Drive artifact tree documented by the final pipeline.
+
 ## File types
 
 - `*.txt` — tabular data (CSV format) with subject IDs, reading project/version,
